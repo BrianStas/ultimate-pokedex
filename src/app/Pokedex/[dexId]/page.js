@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import {useState, useEffect} from 'react'
  
@@ -22,6 +23,6 @@ export default function DexPokemon() {
 
     console.log(dexId);
     return( <div>
-        {dexMon.map((pokemon)=><div key={pokemon.entry_number}>{pokemon.pokemon_species.name}</div>)}
+        {dexMon.map((pokemon)=><Link href={`/Pokemon/${pokemon.pokemon_species.name}`} key={pokemon.entry_number}>{pokemon.pokemon_species.name}</Link>)}
         </div>)
 }
