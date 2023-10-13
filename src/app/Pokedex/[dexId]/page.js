@@ -1,5 +1,6 @@
 'use client'
-import Link from 'next/link';
+import PokemonDisplay from '@/components/PokemonDisplay';
+
 import { useParams } from 'next/navigation'
 import {useState, useEffect} from 'react'
  
@@ -22,7 +23,7 @@ export default function DexPokemon() {
       if (!dexMon) return <p>Invalid Pokedex ID</p>
 
     console.log(dexId);
-    return( <div>
-        {dexMon.map((pokemon)=><Link href={`/Pokemon/${pokemon.pokemon_species.name}`} key={pokemon.entry_number}>{pokemon.pokemon_species.name}</Link>)}
+    return( <div className = "grid grid-cols-4 gap-4">
+        {dexMon.map((pokemon)=>{return <PokemonDisplay selectedPokemon={pokemon.pokemon_species.name} />})}
         </div>)
 }
