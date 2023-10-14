@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import Link from 'next/link';
+import TypeBadge from './TypeBadge';
 
 function pokemonDisplay({selectedPokemon}){
   const [currentMon, setCurrentMon]=useState(null);
@@ -28,6 +29,7 @@ function pokemonDisplay({selectedPokemon}){
             href={`/Pokemon/${selectedPokemon}`} 
             key={currentMon.id}
             className= "card-title">{selectedPokemon}</Link>
+            <TypeBadge pokemon = {currentMon} />
             </div>
           </div>
           )
