@@ -9,6 +9,7 @@
 // export default pokemonCard
 
 'use client'
+import MonStatBarChart from '@/components/MonStatBarChart';
 import { useParams } from 'next/navigation'
 import {useState, useEffect} from 'react'
  
@@ -31,5 +32,6 @@ export default function PokemonCard() {
       if (!monCard) return <p>Invalid Pokemon name</p>
       return (<div>
         <p>{monCard.species.name}</p>
+        <MonStatBarChart />
       </div>)
     }

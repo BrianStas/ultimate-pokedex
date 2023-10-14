@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TypeBadge({pokemon}){
 const BadgeColor = {
-    bug: "bg-green-400",
+    bug: "bg-green-400 text-gray-800",
     dark: "bg-base-300",
     dragon: "bg-violet-500",
     electric: "badge-warning",
