@@ -28,7 +28,6 @@ for(let type of pokemon.types){
    TypeList.push( <div className = {`badge ${BadgeColor[type.type.name]}`}>{type.type.name}</div>)
 }
 
-console.log(TypeList)
 return(<div>
 {TypeList}</div>)
 }
