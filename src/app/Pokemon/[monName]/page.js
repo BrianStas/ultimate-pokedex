@@ -32,6 +32,6 @@ export default function PokemonCard() {
       if (!monCard) return <p>Invalid Pokemon name</p>
       return (<div>
         <p>{monCard.species.name}</p>
-        <MonStatBarChart />
+        <MonStatBarChart monCard = {monCard}/>
       </div>)
     }

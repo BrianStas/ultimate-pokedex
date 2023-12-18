@@ -8,7 +8,13 @@ function MonPopUp({selectedMon, open}) {
             <div className="popupContainer">
                 <h3 className="closeBtn">Close</h3>
                 <div className="content">
-                This is where the content will go
+                    <div>
+                    <img src={selectedMon.sprites.front_default} alt={selectedMon} />
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div></div>
                 </div>
             </div>
         </div>

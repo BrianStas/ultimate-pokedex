@@ -8,8 +8,8 @@ import {
     Tooltip,
     Legend,
   } from 'chart.js';
+  import ChartDataLabels from 'chartjs-plugin-datalabels';
   import { Bar } from 'react-chartjs-2';
-  import { faker } from '@faker-js/faker';
   
   ChartJS.register(
     CategoryScale,
@@ -17,48 +17,64 @@ import {
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    ChartDataLabels
   );
   
-   const options = {
-    indexAxis: 'y', 
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'right'
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Horizontal Bar Chart',
-      },
-    },
-  };
+   
   
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  export default function MonStatBarChart ({monCard}) {
+    const options = {
+      indexAxis: 'y', 
+      elements: {
+        bar: {
+          borderWidth: 2,
+        },
       },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      responsive: true,
+      scales: {
+        x: {
+          max: 255
+        }
       },
-    ],
-  };
-  
-  export default function MonStatBarChart () {
+      plugins: {
+        legend: {
+          position: 'right'
+        },
+        title: {
+          display: true,
+          text: `${monCard.name}`,
+        },
+      },
+    };
+    
+    const labels = ['HP', 'Attack', 'Defense', 'Special Attack', 'Special Defense', 'Speed'];
+    
+    const data = {
+      labels,
+      datasets: [
+        {datalabels: {
+          color: '#000000'
+        },
+          label: 'Dataset 1',
+          data: monCard.stats.map((stat)=> stat.base_stat),
+          borderColor: ['rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+          'rgb(153, 102, 255)',
+          'rgb(201, 203, 207)'],
+          backgroundColor: ['rgba(255, 99, 132)',
+          'rgba(255, 159, 64)',
+          'rgba(255, 205, 86)',
+          'rgba(75, 192, 192)',
+          'rgba(54, 162, 235)',
+          'rgba(153, 102, 255)',
+          'rgba(201, 203, 207)'],
+        },
+      ],
+    };
+
     return <Bar options={options} data={data} />;
   }
