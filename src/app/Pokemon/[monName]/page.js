@@ -31,7 +31,19 @@ export default function PokemonCard() {
       if (isLoading) return <p>Loading...</p>
       if (!monCard) return <p>Invalid Pokemon name</p>
       return (<div>
+        <div className = "grid justify-items-center">
         <p>{monCard.species.name}</p>
-        <MonStatBarChart monCard = {monCard}/>
+        </div>
+        <div className = "grid grid-cols-2 grid-rows-2 grid-flow-row">
+          <div className = "object-center">
+            <img src={monCard.sprites.front_default} alt={monCard.species.name} className = "object-cover h-48 w-96 object-center" />
+          </div>
+          <div>
+            <MonStatBarChart monCard = {monCard}/>
+          </div>
+          <div>
+            <p>Where does this align?</p>
+          </div>
+        </div>
       </div>)
     }
