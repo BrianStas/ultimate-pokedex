@@ -41,9 +41,15 @@ export default function PokemonCard() {
           <div>
             <MonStatBarChart monCard = {monCard}/>
           </div>
-          <div>
-            <p>Where does this align?</p>
+          <div className = "col-span-2">
+
+          
+            <div className = "float-right">
+              <h3>Abilities</h3>
+              {monCard.abilities.map((ability, index)=> {return(<div key={index}>{ability.ability.name}</div>)})}
+            </div>
           </div>
+
         </div>
       </div>)
     }

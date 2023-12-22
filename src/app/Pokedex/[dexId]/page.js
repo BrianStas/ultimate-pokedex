@@ -24,6 +24,6 @@ export default function DexPokemon() {
 
     console.log(dexId);
     return( <div className = "grid grid-cols-4 gap-4">
-        {dexMon.map((pokemon)=>{return <PokemonDisplay selectedPokemon={pokemon.pokemon_species.name} />})}
+        {dexMon.map((pokemon)=>{return <PokemonDisplay selectedPokemon={pokemon.pokemon_species.name} id={pokemon.entry_number}/>})}
         </div>)
 }
