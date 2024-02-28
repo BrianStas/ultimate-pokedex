@@ -4,34 +4,22 @@ import Link from 'next/link';
 import TypeBadge from './TypeBadge';
 import MonPopUp from './MonPopUp';
 
-function pokemonDisplay({selectedPokemon}){
-  const [currentMon, setCurrentMon]=useState(null);
-  const [isLoading, setLoading] = useState(true);
+function pokemonDisplay({currentMon}){
+  // const [currentMon, setCurrentMon]=useState(null);
+ 
   const [openPopup, setOpenPopup] = useState(false);
   // console.log("selectedPokemon is: ", selectedPokemon)
+ 
 
 
-  useEffect(() => {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentMon(data);
-          setLoading(false)
-        })
-    }, [])
-
-    if (isLoading) return <p>Loading...</p>
       if (!currentMon) return <p>Invalid Pokemon</p>
 
   return (
-    <div className="card w-48 bg-base-100 shadow-xl" onClick={()=>setOpenPopup(true)}>
+    <div className="card w-48 bg-base-100 shadow-xl" onClick={()=>setOpenPopup(!openPopup)}>
         <MonPopUp open={openPopup} selectedMon={currentMon} />
-            <figure><img src={currentMon.sprites.front_default} alt={selectedPokemon} /></figure>
+            <figure><img src={currentMon.sprites.front_default} alt={currentMon.name} /></figure>
             <div className = "card-body items-center text-center">
-            <Link 
-            href={`/Pokemon/${selectedPokemon}`} 
-            key={currentMon.id}
-            className= "card-title">{selectedPokemon}</Link>
+            <h1>{currentMon.name}</h1>
             <TypeBadge pokemon = {currentMon} />
             </div>
           </div>
