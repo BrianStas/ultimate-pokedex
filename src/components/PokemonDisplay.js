@@ -5,14 +5,10 @@ import TypeBadge from './TypeBadge';
 import MonPopUp from './MonPopUp';
 
 function pokemonDisplay({currentMon}){
-  // const [currentMon, setCurrentMon]=useState(null);
- 
+
   const [openPopup, setOpenPopup] = useState(false);
-  // console.log("selectedPokemon is: ", selectedPokemon)
- 
 
-
-      if (!currentMon) return <p>Invalid Pokemon</p>
+  if (!currentMon) return <p>Invalid Pokemon</p>
 
   return (
     <div className="card w-48 bg-base-100 shadow-xl" onClick={()=>setOpenPopup(!openPopup)}>
