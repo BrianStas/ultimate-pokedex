@@ -18,8 +18,8 @@ function pokemonDisplay({currentMon}){
               <Image
                 src={currentMon.sprites.other['official-artwork'].front_default} 
                 alt={currentMon.name}
-                width="200"
-                height="200"
+                width="125"
+                height="125"
               />
             </figure>
             <div className = "card-body items-center text-center">

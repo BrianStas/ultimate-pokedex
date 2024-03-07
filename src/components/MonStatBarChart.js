@@ -39,16 +39,17 @@ import {
       },
       plugins: {
         legend: {
+          display: false,
           position: 'right'
         },
         title: {
-          display: true,
+          display: false,
           text: `${monCard.name}`,
         },
       },
     };
     
-    const labels = ['HP', 'Attack', 'Defense', 'Special Attack', 'Special Defense', 'Speed'];
+    const labels = ['HP', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed'];
     
     const data = {
       labels,

@@ -35,10 +35,7 @@ useEffect(() => {
     
     <main>
       <div className = "grid grid-cols-4 gap-4">
-      {pokeList.map((pokemon)=>{return <PokemonDisplay currentMon={pokemon} id={pokemon.id}/>})}
-    {/* <Link href="/Pokedex" className='bg-marian-blue hover:bg-blue-500 text-white font-bold py-2 px-4 rounded text-center'>Browse by Pokedex</Link>
-    <Link href="/Pokemon" className='bg-flourescent-cyan hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded text-center'>Browse by Type</Link>
-    <Link href="/Pokemon" className='bg-kelly-green hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center'>Browse Alphabetically</Link> */}
+      {pokeList.map((pokemon)=>{return <PokemonDisplay currentMon={pokemon} id={pokemon.id} key={pokemon.id}/>})}
       </div>
     </main>
     
