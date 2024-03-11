@@ -9,7 +9,7 @@ function MonPopUp({selectedMon, open}) {
             <div className="popupContainer">
                 <h3 className="closeBtn">Close</h3>
                 <div className="content">
-                    <div className='grid grid-cols-12'>
+                    <div className='grid grid-flow-row grid-cols-12 items-center'>
                         <div className='col-span-3 row-span-2'>
                             <img src={selectedMon.sprites.front_default}
                                 alt={selectedMon}
@@ -18,9 +18,21 @@ function MonPopUp({selectedMon, open}) {
                                  />
                         </div>
                         <div className='col-span-6 mt-2'>{selectedMon.name}</div>
-                        <div className='col-span-9 h-80 pr-4'>
+                        <div className='col-span-9 h-auto pr-4'>
                         <MonStatBarChart monCard={selectedMon} />
                         </div>
+                        
+                        <table className='col-span-12'>
+                            <thead>
+                                <tr>
+                                    <th>Move</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {selectedMon.moves.map((move)=> <td>{move.name}</td> )}
+                            </tbody>
+                        </table>
+                        
                     </div>
                     <div>
                         
