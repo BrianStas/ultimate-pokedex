@@ -8,6 +8,8 @@ export default function Home() {
 const [pokeList, setPokeList] = useState([]);
 const [isLoading, setLoading] = useState(true);
 
+
+// the fetch request here would work with the next portion of the call. res.next would probably be the next page of results.
 useEffect(() => {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=50/')
     .then((res) => res.json())
