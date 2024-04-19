@@ -12,17 +12,19 @@ export async function getFullPokemonList(){
   try{
   const url = 'https://pokeapi.co/api/v2/pokemon'
   const response = await fetch(url)
-  const data = response.json()
+  const data = await response.json()
+  console.log("data is: ", data)
   const monList = data.results;
+  console.log("monList is: ", monList)
   let promises = monList.map((pokemon) => {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
   });
-  Promise.all(promises)
-    .then((res) => Promise.all(res.map((r) => r.json())))
-    .then((res) => {
-      setPokeList(res);
-      setLoading(false);
-    });
+  const results = await Promise.all(promises)
+   return Promise.all(results.map((r) => r.json()))
+    // .then((res) => {
+    //   setPokeList(res);
+    //   setLoading(false);
+    // });
   }
   catch(e){
     console.log(e)};
