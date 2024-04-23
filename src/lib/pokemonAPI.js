@@ -29,3 +29,10 @@ export async function getFullPokemonList(){
   catch(e){
     console.log(e)};
     }
+
+  export async function getMoveList(pokemon){
+    let promises = pokemon.moveList
+    const response = await fetch(pokemon.moves[0].move.url);
+    const data = await response.json();
+    return data;
+  }
