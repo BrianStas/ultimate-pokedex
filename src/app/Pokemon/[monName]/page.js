@@ -8,6 +8,7 @@ export default function PokemonCard() {
     const [monCard, setMonCard]=useState(null);
     const [isLoading, setLoading] = useState(true);
     const {monName}= useParams();
+    const [monAbilities, setMonAbilities] = useState(null);
 
 
     useEffect(() => {
@@ -37,7 +38,7 @@ export default function PokemonCard() {
           
             <div className = "float-right">
               <h3>Abilities</h3>
-              {monCard.abilities.map((ability, index)=> {return(<div key={index}>{ability.ability.name}</div>)})}
+              
             </div>
           </div>
 

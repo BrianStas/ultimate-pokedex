@@ -38,3 +38,10 @@ export async function getFullPokemonList(){
     return Promise.all(results.map((r) =>r.json()))
   
   }
+
+  export async function getPokemon(pokemon){
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+    let monData = await response.json();
+    console.log("monData is: ", monData)
+    return monData;
+  }
