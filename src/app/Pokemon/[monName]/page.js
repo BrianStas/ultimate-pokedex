@@ -1,6 +1,7 @@
 
 'use client'
 import MonStatBarChart from '@/components/MonStatBarChart';
+import { getMoveList, getPokemon } from '@/lib/pokemonAPI';
 import { useParams } from 'next/navigation'
 import {useState, useEffect} from 'react'
  
@@ -8,14 +9,20 @@ export default function PokemonCard() {
     const [monCard, setMonCard]=useState(null);
     const [isLoading, setLoading] = useState(true);
     const {monName}= useParams();
-    const [monAbilities, setMonAbilities] = useState(null);
+    const [monMoves, setMonMoves] = useState(null);
 
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${monName}`)
-          .then((res) => res.json())
+      getPokemon(monName)
+        // fetch(`https://pokeapi.co/api/v2/pokemon/${monName}`)
+        //   .then((res) => res.json())
           .then((data) => {
             setMonCard(data);
+            getMoveList(monName)
+            .then((data) => {
+              console.log("move data is: ", data)
+              setMonMoves(data)});
+
             setLoading(false)
           })
       }, [])
@@ -38,6 +45,9 @@ export default function PokemonCard() {
           
             <div className = "float-right">
               <h3>Abilities</h3>
+              {monMoves.map((move) => <div>
+                <p>{move.name}</p>
+              </div>)}
               
             </div>
           </div>

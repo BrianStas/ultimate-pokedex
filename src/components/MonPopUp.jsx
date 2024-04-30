@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MonStatBarChart from './MonStatBarChart';
+import { getMoveList } from '@/lib/pokemonAPI';
 
 function MonPopUp({selectedMon, open}) {
+
     if (!open) return null;
     console.log("popup open is ", open);
+    console.log("selectedMon data is: ", selectedMon)
+
+
     return (
         <div className='overlay z-10'>
             <div className="popupContainer">
@@ -29,7 +34,7 @@ function MonPopUp({selectedMon, open}) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {selectedMon.moves.map((move)=> <td>{move.name}</td> )}
+                                {selectedMon.moves.map((move)=> <td>{move.move.name}</td> )}
                             </tbody>
                         </table>
                         
