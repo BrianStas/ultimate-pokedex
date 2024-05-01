@@ -27,14 +27,17 @@ function MonPopUp({selectedMon, open}) {
                         <MonStatBarChart monCard={selectedMon} />
                         </div>
                         
-                        <table className='col-span-12'>
+                        <table className='table-auto col-span-4'>
                             <thead>
+                            
                                 <tr>
-                                    <th>Move</th>
+                                    <th>Moves</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {selectedMon.moves.map((move)=> <td>{move.move.name}</td> )}
+                                
+                                {selectedMon.moves.slice(0, 5).map((move)=> <tr> <td>{move.move.name}</td></tr> )}
+                                
                             </tbody>
                         </table>
                         
