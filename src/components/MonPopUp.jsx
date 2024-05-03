@@ -27,19 +27,8 @@ function MonPopUp({selectedMon, open}) {
                         <MonStatBarChart monCard={selectedMon} />
                         </div>
                         
-                        <table className='table-auto col-span-4'>
-                            <thead>
-                            
-                                <tr>
-                                    <th>Moves</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                {selectedMon.moves.slice(0, 5).map((move)=> <tr> <td>{move.move.name}</td></tr> )}
-                                
-                            </tbody>
-                        </table>
+                        {/* this could be just a simple evolution chart, but moves will need to go on the full pages. */}
+                        <div>For full pokemon information, click here</div>
                         
                     </div>
                     <div>
