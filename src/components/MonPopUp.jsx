@@ -13,6 +13,7 @@ function MonPopUp({selectedMon, open}) {
         <div className='overlay z-10'>
             <div className="popupContainer">
                 <h3 className="closeBtn">Close</h3>
+                {/* this is where I'm going to start working again */}
                 <div className="content">
                     <div className='grid grid-flow-row grid-cols-12 items-center'>
                         <div className='col-span-3 row-span-2'>
