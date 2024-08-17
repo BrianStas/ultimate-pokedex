@@ -9,6 +9,8 @@ function pokemonDisplay({currentMon}){
 
   const [openPopup, setOpenPopup] = useState(false);
 
+  // will be reentering this work. Need to reconsider how I handle the data with knowledge of context now.
+
   if (!currentMon) return <p>Invalid Pokemon</p>
 
   return (
