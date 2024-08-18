@@ -9,7 +9,7 @@ function pokemonDisplay({currentMon}){
 
   const [openPopup, setOpenPopup] = useState(false);
 
-  // will be reentering this work. Need to reconsider how I handle the data with knowledge of context now.
+  // work will start monday
 
   if (!currentMon) return <p>Invalid Pokemon</p>
 
