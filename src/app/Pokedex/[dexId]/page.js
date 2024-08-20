@@ -9,6 +9,7 @@ export default function DexPokemon() {
     const [isLoading, setLoading] = useState(true);
     const {dexId}= useParams();
 
+    //i need a search function but I'm not sure I can implement with current api call
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokedex/${dexId}`)
