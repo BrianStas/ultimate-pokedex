@@ -29,3 +29,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Goal
 This is a project I designed in order to practice both Next.js and the use of free APIs that come with more restrictions on number of uses and pulls. Currently unfinished due to professional reasons.
 The main focus will be on a workable search engine that can filter through the PokeAPI for region, type, etc.
+The major hurdle is the lack of calls available on PokeAPI and how I can work around that to pull in the results necessary for a given search.
