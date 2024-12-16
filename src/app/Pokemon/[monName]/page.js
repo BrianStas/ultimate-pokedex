@@ -11,9 +11,6 @@ export default function PokemonCard() {
     const {monName}= useParams();
     const [monMoves, setMonMoves] = useState(null);
 
-    //using tailwind, TD: Need to style landing page
-
-
     useEffect(() => {
       getPokemon(monName)
         // fetch(`https://pokeapi.co/api/v2/pokemon/${monName}`)
