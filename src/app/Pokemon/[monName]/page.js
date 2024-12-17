@@ -13,8 +13,7 @@ export default function PokemonCard() {
 
     useEffect(() => {
       getPokemon(monName)
-        // fetch(`https://pokeapi.co/api/v2/pokemon/${monName}`)
-        //   .then((res) => res.json())
+
           .then((data) => {
             setMonCard(data);
             getMoveList(monName)
@@ -41,7 +40,6 @@ export default function PokemonCard() {
           </div>
           <div className = "col-span-2">
 
-          
             <div className = "float-right">
               <h3>Abilities</h3>
               {monMoves.map((move) => <div>
