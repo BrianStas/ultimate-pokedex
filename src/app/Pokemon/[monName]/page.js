@@ -11,6 +11,8 @@ export default function PokemonCard() {
     const {monName}= useParams();
     const [monMoves, setMonMoves] = useState(null);
 
+    //im making comments for the github
+
     useEffect(() => {
       getPokemon(monName)
 
